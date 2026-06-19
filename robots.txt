@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alftoso.github.io/home-official-leyu-com-cn/sitemap.xml
