@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问鼎APP · 资料整理新方式</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: #f2f4f7;
+      color: #2c3e50;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 880px;
+      width: 100%;
+    }
+
+    /* 开场短句 – 细线条分区 */
+    .hero-tag {
+      margin-top: 0.8rem;
+      margin-bottom: 2rem;
+      padding: 1.2rem 1.6rem;
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      border-radius: 48px;
+      border: 1px solid #dce1e8;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 360;
+      letter-spacing: 1px;
+      color: #2f4050;
+    }
+    .hero-tag em {
+      font-style: normal;
+      background: #ecf0f5;
+      padding: 0.2rem 0.6rem;
+      border-radius: 24px;
+      font-weight: 400;
+      color: #1f2b38;
+    }
+
+    /* 卡片模式 */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #e2e7ee;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0,0,0,0.02);
+      transition: box-shadow 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 440;
+      letter-spacing: -0.3px;
+      margin-bottom: 1.2rem;
+      color: #1f2b3e;
+      border-left: 4px solid #a3b5cc;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-weight: 440;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: #34495e;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.6rem 0 1rem;
+    }
+    .feature-item {
+      flex: 1 1 200px;
+      background: #f8faff;
+      border-radius: 24px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #e4eaf2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .feature-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4a5b6b;
+    }
+
+    .scene-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      padding: 0;
+      list-style: none;
+      margin: 1rem 0 0.5rem;
+    }
+    .scene-list li {
+      padding: 0.5rem 0 0.5rem 1.2rem;
+      border-left: 3px solid #cbd5e1;
+      color: #2f4050;
+    }
+
+    .quote-note {
+      background: #f0f4fc;
+      padding: 1.2rem 1.6rem;
+      border-radius: 40px;
+      border: 1px solid #d9e0eb;
+      margin: 1.8rem 0 1.2rem;
+      font-style: normal;
+    }
+
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+    .faq-mini details {
+      padding: 0.6rem 1rem;
+      border-radius: 60px;
+      background: #fafbfd;
+      border: 1px solid #e1e7ee;
+    }
+    .faq-mini summary {
+      cursor: pointer;
+      font-weight: 420;
+      color: #1f2c3b;
+    }
+    .faq-mini details p {
+      margin-top: 0.5rem;
+      padding-left: 0.4rem;
+      color: #3e5367;
+      font-size: 0.95rem;
+    }
+
+    .gentle-footer {
+      text-align: right;
+      margin-top: 1.8rem;
+      padding: 0.8rem 0.2rem;
+      color: #5a6d7e;
+      font-size: 0.95rem;
+      border-top: 1px solid #dce2ea;
+    }
+
+    a {
+      color: #2b4b6f;
+      text-decoration: none;
+      font-weight: 450;
+      border-bottom: 1px dotted #b0c4db;
+      transition: border 0.1s, color 0.1s;
+    }
+    a:hover {
+      border-bottom: 1px solid #1f3852;
+      color: #1a3048;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .card {
+        padding: 1.4rem;
+      }
+      .hero-tag {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.2rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 开场短句 -->
+  <div class="hero-tag">
+    <em>整理</em> 不是把东西藏起来，而是让需要的时候找得到。
+  </div>
+
+  <!-- 承接段落：资料与索引视角 -->
+  <div class="card">
+    <h2>从一堆文档到一条线索</h2>
+    <p>每天经手的笔记、截图、网页摘录、会议记录……它们散落在各个角落，真正要用时却像在翻一个没有目录的抽屉。过去一年我尝试过不少整理方法，最后发现，真正让资料活起来的不是文件夹层级，而是<strong>索引</strong>——给每一条信息一个轻巧的定位，让它能被快速回忆、关联、调取。</p>
+    <p>这也是我逐渐习惯使用 <a href="https://app-index-wending.com">问鼎APP</a> 的原因：它不要求你把所有内容迁移到一个地方，而是帮你建立属于自己的“资料索引网”。你可以把散落在微信、邮件、本地文档里的重要片段链接起来，形成一个可以随时回溯的知识脉络。</p>
+    <div class="quote-note">
+      🧷 一个很日常的场景：上周翻到一张两年前的思维导图截图，里面提到一个冷门工具，当时觉得没用就搁置了。这周做新方案时忽然想起，通过问鼎里的标签索引，十秒就定位到了那张图——这种“自己帮自己”的踏实感，比任何收藏夹都管用。
+    </div>
+    <p style="margin-bottom: 0.3rem;">不需要提前规划分类，也不必强迫症式地打标签。每次存一条笔记就像在书里夹一张书签，某天顺着索引找过去，总会有新的连接。</p>
+  </div>
+
+  <!-- 特点列表（卡片 + 格状） -->
+  <div class="card">
+    <h2>几个让我用得顺手的细节</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>🔗 双向关联</h3>
+        <p>记下一条想法，自动与其他提及它的内容建立索引，知识逐渐织成网而不是堆成山。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📎 轻量剪藏</h3>
+        <p>从任何应用复制一段文字，问鼎都能快速生成索引卡片，保留来源上下文，不必担心断章取义。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🔍 模糊回溯</h3>
+        <p>只记得大概的关键词？甚至只记得“那天下午记过一个蓝色的东西”——模糊搜索也能把相关索引捞出来。</p>
+      </div>
+      <div class="feature-item">
+        <h3>📂 本地优先</h3>
+        <p>索引数据默认留在本地。我习惯同步到自己的云盘，不依赖单一平台，资料始终属于自己。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 场景引申 + 小型FAQ -->
+  <div class="card">
+    <h2>一些常遇到的疑问（以及我的体会）</h2>
+    <div class="faq-mini">
+      <details>
+        <summary>“我用 Notion / Obsidian 很久了，还需要问鼎吗？”</summary>
+        <p>我用 Notion 做项目，用 Obsidian 写日记，但问鼎的角色更像一个“跨应用的索引中枢”——它不取代你原来的工具，而是把那些重要但零散的信息（比如微信聊天里的一句话、某封邮件的附件说明）也纳入你的个人索引。相当于给所有资料装了一个统一的检索层。</p>
+      </details>
+      <details>
+        <summary>“索引会不会越积越多，最后反而不好找？”</summary>
+        <p>起初我也担心，但用下来发现，问鼎的索引卡片会自动按时间、关联度、使用频率排序。平时只要偶尔清理一下“孤立索引”（那些很久没关联过的内容），整个索引库就会一直保持轻盈。而且它支持导出索引列表，随时可以重新组织。</p>
+      </details>
+      <details>
+        <summary>“适合记录生活类的内容吗？比如读书笔记、菜谱。” </summary>
+        <p>当然。我自己的索引里就混合了工作资料和私人笔记——上周用问鼎把一本非虚构书的摘录和一篇旧日记串了起来，发现书里的观点恰好印证了我三年前的某个想法。这种跨时间的意外连接，正是索引的魅力。</p>
+      </details>
+    </div>
+    <p style="margin-top: 1.6rem; color: #3d4e5f;">如果你也习惯随手存点东西，并且希望它们在未来某个时刻能被轻易记起，或许可以试试把 <a href="https://app-index-wending.com">问鼎APP</a> 当作你的第二层索引簿。它不喧嚣，但可靠。</p>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="gentle-footer">
+    —— 资料整理最好的状态，是当你需要时，它恰好就在索引的尽头。
+  </div>
+
+</div>
+</body>
+</html>
