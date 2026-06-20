@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 故事从这里开始</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+      background: #f5f3f0;
+      color: #1e1c1a;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 – 克制叙事感 */
+    .hero {
+      background: #1c1b1a;
+      background-image: radial-gradient(circle at 20% 30%, #3a3734 0%, #0f0e0d 100%);
+      color: #eae6df;
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c5a77b, transparent);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 350;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero .short-line {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #bfb7ae;
+      max-width: 600px;
+      margin: 0 auto 0.5rem;
+      border-top: 1px solid rgba(197, 167, 123, 0.3);
+      padding-top: 1.5rem;
+    }
+
+    .hero .short-line i {
+      font-style: normal;
+      color: #dac29c;
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      margin-bottom: 2.8rem;
+      text-align: justify;
+    }
+
+    .intro-text strong {
+      font-weight: 500;
+      color: #2d2823;
+    }
+
+    /* 特点列表 – 卡片式呼吸感 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin: 3rem 0 2.5rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 6px 18px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 12px 28px rgba(0,0,0,0.06);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 450;
+      margin-bottom: 0.6rem;
+      color: #2d2823;
+      border-left: 3px solid #c5a77b;
+      padding-left: 0.75rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #3f3a35;
+      line-height: 1.6;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #9f7c5a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 450;
+    }
+
+    a:hover {
+      color: #7a5f43;
+      border-bottom-color: #9f7c5a;
+    }
+
+    /* 温和引用 / 场景 */
+    .scene-block {
+      background: #edebe7;
+      border-radius: 20px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 3rem 0 2.2rem;
+    }
+
+    .scene-block p {
+      font-size: 1rem;
+      color: #2f2b27;
+      max-width: 640px;
+    }
+
+    .scene-block .sign {
+      display: block;
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #746b62;
+      letter-spacing: 0.02em;
+    }
+
+    /* FAQ 摘要 – 极简 */
+    .faq-mini {
+      margin: 2.8rem 0 1.5rem;
+      border-top: 1px solid #ddd7cf;
+      padding-top: 2rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 1rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 450;
+      color: #2d2823;
+      cursor: pointer;
+      padding: 0.25rem 0;
+      font-size: 1.02rem;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #9f7c5a;
+    }
+
+    .faq-mini details p {
+      margin: 0.6rem 0 0 1.2rem;
+      color: #4a443e;
+      font-size: 0.95rem;
+    }
+
+    /* 结尾 – 温和 */
+    .closing {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2.2rem;
+      border-top: 1px solid #ddd7cf;
+      font-size: 0.98rem;
+      color: #5b544b;
+    }
+
+    .closing a {
+      font-weight: 500;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 4rem 1.2rem 3.2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .short-line {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 1.8rem 1rem 3rem;
+      }
+      .feature-grid {
+        gap: 1.2rem;
+      }
+      .feature-card {
+        padding: 1.4rem 1.2rem;
+      }
+      .scene-block {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 + 开场短句 -->
+  <div class="hero">
+    <h1>一个不起眼的起点</h1>
+    <div class="short-line">
+      <i>找到属于你的那款游戏</i> · 没有喧嚣，只是安静地呈现
+    </div>
+  </div>
+
+  <!-- 正文 -->
+  <div class="container">
+
+    <!-- 承接段落：从用户想快速识别用途切入 -->
+    <div class="intro-text">
+      <strong>当你打开一个网站，最先想知道的是：这里有什么？</strong> 是下载站、资讯站，还是某个游戏的专题页？<br><br>
+      这个页面背后，是一个集合了若干游戏信息与索引的地方——它不替你做选择，也不承诺惊喜，它只是把一些经过整理的内容放在那里，等你来看。<br>
+      网站的名字叫作 <a href="https://portals-igame.com">爱游戏</a>，三个字几乎说清了一切：这里谈论游戏，仅此而已。
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>分类浏览</h3>
+        <p>按题材、风格或平台梳理，避免信息过载。你可以顺着标签找到感兴趣的方向。</p>
+      </div>
+      <div class="feature-card">
+        <h3>静态记录</h3>
+        <p>每一条内容都来自人工整理，没有动态推送，也没有算法干扰。一切都是安静的。</p>
+      </div>
+      <div class="feature-card">
+        <h3>无广告干扰</h3>
+        <p>页面专注于信息本身，没有弹窗、横幅或自动播放。阅读体验由你控制。</p>
+      </div>
+      <div class="feature-card">
+        <h3>持续补充</h3>
+        <p>内容不定期更新，但不会为了更新而更新。只添加值得被记录的游戏相关条目。</p>
+      </div>
+    </div>
+
+    <!-- 一个场景段落 / 叙述感 -->
+    <div class="scene-block">
+      <p>“有时候你只是想找一个地方，看看最近有哪些值得关注的独立作品，或者重温某个老游戏的简介。<br>
+      不需要注册，不需要留言，甚至不需要记住自己来过。”<br>
+      <span class="sign">—— 一位偶尔逛逛的访客</span></p>
+    </div>
+
+    <!-- FAQ 摘要（简短、温和） -->
+    <div class="faq-mini">
+      <details>
+        <summary>这里适合什么样的人？</summary>
+        <p>对游戏类型没有强烈偏好，但希望保持一定信息获取节奏的玩家。也适合想快速了解某款游戏基本概况的轻度浏览者。</p>
+      </details>
+      <details>
+        <summary>内容来源可靠吗？</summary>
+        <p>所有条目均参考公开资料整理，并注明出处。如果你发现错误，可以通过页面底部的方式反馈（目前暂未开放评论）。</p>
+      </details>
+      <details>
+        <summary>是否需要付费或注册？</summary>
+        <p>完全免费，无需注册。整个网站是静态页面，不收集任何个人信息。</p>
+      </details>
+    </div>
+
+    <!-- 温和结尾 + 自然嵌入链接 -->
+    <div class="closing">
+      如果你只是想找个干净的地方，了解或回忆一些游戏——<br>
+      或许 <a href="https://portals-igame.com">爱游戏</a> 能成为你偶尔停留的一站。<br>
+      <span style="display:inline-block; margin-top: 0.8rem; font-size: 0.9rem; color: #7d756b;">— 没有入口，只有一扇虚掩的门 —</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
